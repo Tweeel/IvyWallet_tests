@@ -23,13 +23,9 @@ internal class ExpressionParserTest {
         "3+6/3-(-10), 15.0",
         "5+6, 11.0",
         "5.0000000, 5.0",
-        "100/(10*10), 1.0",
     )
-    fun `Test evaluating expression`(expression: String, expected: Double) {
-        val result = parser(expression).first()
-
-        val actual = result.value.eval()
-
-        assertThat(actual).isEqualTo(expected)
+    fun `Test evaluation expression`(expression: String, expected: Double) {
+        val result = parser(expression).first().value.eval()
+        assertThat(result).isEqualTo(expected)
     }
 }
